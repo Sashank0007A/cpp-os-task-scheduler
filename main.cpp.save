@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <iomanip>
+using namespace std;
+
+// Define the Process structure
+struct Process {
+    int pid;
+    int arrivalTime;
+    int burstTime;
+    int priority;
+
+    Process(int _pid, int _arrival, int _burst, int _priority = 0)
+        : pid(_pid), arrivalTime(_arrival), burstTime(_burst), priority(_priority) {}
+};
+
+// Function to display process table
+void displayProcesses(const vector<Process>& processes) {
+    cout << "\nPROCESS TABLE:\n";
+    cout << setw(10) << "PID" 
+         << setw(15) << "Arrival Time" 
+         << setw(15) << "Burst Time"
+         << setw(10) << "Priority" << endl;
+
+    for (const auto& p : processes) {
+        cout << setw(10) << p.pid
+             << setw(15) << p.arrivalTime
+             << setw(15) << p.burstTime
+             << setw(10) << p.priority << endl;
+    }
+}
+
+int main() {
+    cout << "====== OS CPU Task Scheduler (C++) ======\n";
+
+    int n;
+    cout << "Enter number of processes: ";
+    cin >> n;
+
+    vector<Process> processes;
+    for (int i = 0; i < n; ++i) {
+        int at, bt, pr;
+        cout << "Process " << i + 1 << " - Arrival Time: ";
+        cin >> at;
+        cout 

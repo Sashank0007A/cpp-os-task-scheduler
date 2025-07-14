@@ -1,0 +1,4 @@
+g++ gui/main.cpp -o gui/gui-app -std=c++17 \
+-I/opt/homebrew/include -L/opt/homebrew/lib \
+-lsfml-graphics -lsfml-window -lsfml-system
+./gui/gui-app
